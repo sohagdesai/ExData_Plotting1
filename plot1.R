@@ -14,8 +14,9 @@ plot1 <- function() {
 
     # Plot histogram
     hist(as.numeric(as.character(hpcdata1$Global_active_power)),
-         xlab="Global Active Power (kilowatts)", 
-         main = "Global Active Power",col="red")
+         xlab = "Global Active Power (kilowatts)", 
+         main = "Global Active Power",
+         col  = "red")
 
     # Turn off the device
     dev.off()
