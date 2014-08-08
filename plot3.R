@@ -21,7 +21,8 @@ plot3 <- function() {
         # Set up the PNG file to write to
         png(filename = "plot3.png")
         
-        # Plot the data as a line chart (type = "l")
+        # Plot the submetering 1 data in black; set Y axis limit to max
+        # value across submetering 1, 2 and 3 (found by using summary command)
         plot(strptime(hpcdata1$Date_and_Time, "%Y-%m-%d %H:%M:%S"),
              as.numeric(as.character(hpcdata1$Sub_metering_1)),
              xlab = "", 
@@ -30,8 +31,12 @@ plot3 <- function() {
              col  = "black",
              ylim = c(0,38)) 
         
+        # Set new to TRUE to make the next plot NOT clean the frame (as if it
+        # were a new device)
         par(new = TRUE)
-        
+
+        # Plot the submetering 2 data in red; set Y axis limit to max
+        # value across submetering 1, 2 and 3 (found by using summary command)        
         plot(strptime(hpcdata1$Date_and_Time, "%Y-%m-%d %H:%M:%S"),
              as.numeric(as.character(hpcdata1$Sub_metering_2)),
              xlab = "", 
@@ -40,8 +45,12 @@ plot3 <- function() {
              col  = "red",
              ylim = c(0,38)) 
         
+        # Set new to TRUE to make the next plot NOT clean the frame (as if it
+        # were a new device)        
         par(new = TRUE)
         
+        # Plot the submetering 3 data in blue; set Y axis limit to max
+        # value across submetering 1, 2 and 3 (found by using summary command)        
         plot(strptime(hpcdata1$Date_and_Time, "%Y-%m-%d %H:%M:%S"),
              as.numeric(as.character(hpcdata1$Sub_metering_3)),
              xlab = "", 
@@ -50,6 +59,7 @@ plot3 <- function() {
              col  = "blue",
              ylim = c(0,38)) 
         
+        # Set the legend
         legend('topright', 
                c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
                col = c("black","red","blue"),
